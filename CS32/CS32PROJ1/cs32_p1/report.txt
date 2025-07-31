@@ -1,0 +1,13 @@
+Richard Li, 006416979
+Some obstacles I had was trying to understand the code, it's been a whole quarter since CS31 and I have been developing codes mostly in javascript and python. I wasn't too used to the C++ syntaxes, it took me a while trying to understand how each class connected, and the functionality of each functions. I completed the helper function isSixMonthsApart that checks the distance between 2 dates given and returns true if they have a 6 month gap in between and returns false otherwise. The logic was fairly simple, it parses the day, month and the year of both inputs. Then it calculates the distance between the dates using absolute value. 
+
+Also for the function I also added a helper function getDonationHistoryAsString that helped to test the functionality of printDonationHistory, since it's hard to compare a string to a void callable function. The function getDonationHistoryAsString loops each donation in the array and add everything to a comparable string for us to test it easier.  
+
+I tested the code through12 comprehensive test cases. I tried to target every aspect and ensure the code doesn't have errors. Here is a summary of the tests that I did:
+Cases 1-2 test BloodDonation constructors with full parameters (ID, age, weight, date) and partial parameters (ID only), verifying proper initialization and default values. 
+Cases 3-5 validate input constraints by testing ID ranges (100000-999999), age limits (21-65), and weight boundaries (101-280 pounds), confirming invalid values are rejected with -1 assignments. 
+Case 6 establishes basic VacationAccount functionality with valid ID creation. 
+Cases 7-9 tests the functionality in vacationCccount, testing whether if the getBalance() mechanic work, also ensure that duplicated donations or donations within 6 months doesn't work
+Cases 10 verify multiple valid donations with proper time spacing, cumulative balance calculations
+Case 11 tests the history output to see it prints out the output correctly
+Case 12 tests integration with date validation by attempting to add a donation with an invalid date format.

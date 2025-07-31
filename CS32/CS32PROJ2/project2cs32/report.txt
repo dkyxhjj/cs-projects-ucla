@@ -1,0 +1,76 @@
+CSCI Project 2 - TaskList
+==========================
+
+Student Name: Richard Li (006416979)
+Date: July 16th, 2025
+
+Design Description:
+-------------------
+The task list is implemented as a doubly linked list, which can insert and delete from both end, it has a head (pointer at the first node), tail (pointer to the last node), and msize (length of node), instead of just head and msize. Each node contains data (std::string representing the task), next (pointer to next node), and prev (pointer to previous node)
+
+Memory is managed with destructor, copy constructer and assignment operator to avoid memory leaks and ensure deep copies
+
+The list have multiple functionalities, it can add tasks to the back, removing tasks from the front, retrieving task by index, finding a task, deep copying from another list and printing all tasks.
+
+
+
+Pseudocode:
+-----------
+Addback(task)
+Create new node with task
+If list is empty, init by making head and tail to the new node
+Else: tail.next = new node, new node.prev = tail, tail = new node
+Increment the m_size variable
+
+removeFront():
+If head is nullptr, return false
+Temporary var = head
+Head = head.next
+If head is not nullptr
+head.prev = nullptr
+Else: tail = nullptr
+Delete Temp
+Decrement m_size
+
+get(pos, task)
+Node = node of the position (use helper function getNode)
+If node is nullptr: return false
+Task = node.data
+Return true
+
+find(task)
+Current = head, index = 0
+Loop through list, if current.data == task, return index while traversing through list
+If not found, return -1
+
+copylist(other)
+Curr = other.head
+While curr is not nullptr:
+- add the curr.data to the back
+- set curr = curr.next
+
+freeList()
+When head is not nullptr, delete head, and traverses through list using: temp = head, head = head.next, delete temp
+Set tail = nullptr
+Set size = 0
+
+getNode(post)
+Check for invalid node
+If valid, curr = head
+For I in 0 to pos-1:
+- curr = curr.next
+Traverse until reach the position of choice
+
+
+
+Test Cases:
+-----------
+I did multiple tests on the functionality of this class, it would be too long listing every single assert statement, here are the main 7 areas that I tackled, for more please view the main file for comments and the assert statements. 
+
+1. Empty list checks & operations
+2. Basic operations 
+3. Invalid inputs
+4. Copy constructor
+5. assignment operator
+6. Clear function
+7. Special characters
